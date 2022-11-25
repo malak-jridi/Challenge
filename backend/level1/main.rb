@@ -1,5 +1,3 @@
-require 'date'
-
 require_relative '../shared.rb'
 require_relative 'functions.rb'
 
@@ -23,5 +21,4 @@ data_hash["cars"].each do |car|
 	end
 end
 
-
-File.open("backend/level1/output.json", "wb") { |file| file.puts JSON.pretty_generate( final_rentals ) }
+output_json 1, final_rentals

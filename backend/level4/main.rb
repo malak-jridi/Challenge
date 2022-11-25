@@ -1,10 +1,8 @@
-require 'date'
-
 require_relative '../shared.rb'
 require_relative 'functions.rb'
 
 
-data_hash = convert_hash_data 3
+data_hash = convert_hash_data 4
 
 final_rentals_after_commission = { "rentals" => [] }
 
@@ -17,8 +15,8 @@ data_hash["cars"].each do |car|
 			rental_price_disc = rental_price_after_discount( car, number_rental_days, rental['distance'])
 			commission_from_rental_price = ( rental_price_disc * 30)/100
 			final_rentals_after_commission[ "rentals" ].push({
-                                                "id" => rental['id'],
-                                                "actions" => [{
+                                                    "id" => rental['id'],
+                                                    "actions" => [{
                                                     "who" => "driver",
                                                     "type" => "debit",
                                                     "amount" => rental_price_disc
@@ -49,4 +47,4 @@ end
 end
 
 
-File.open("backend/level4/output.json", "wb") { |file| file.puts JSON.pretty_generate( final_rentals_after_commission ) }
+output_json 4, final_rentals_after_commission
