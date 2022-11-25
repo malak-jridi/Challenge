@@ -3,7 +3,7 @@ require 'date'
 require_relative '../shared.rb'
 require_relative 'functions.rb'
 
-data_hash = convert_hash_data
+data_hash = convert_hash_data 1
 
 final_rentals = { "rentals" => [] }
 
